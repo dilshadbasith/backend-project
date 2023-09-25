@@ -36,11 +36,11 @@ module.exports = {
   //Get all users list
 
   getallusers: async (req, res) => {
-    const allusers = await User.find(); //TODO all variables must be camelcase
+    const allUsers = await User.find(); //TODO all variables must be camelcase
     res.status(200).json({
       status: "success",
       message: "Successfully fetched users data",
-      data: allusers,
+      data: allUsers,
     });
   },
 

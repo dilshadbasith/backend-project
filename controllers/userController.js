@@ -26,6 +26,7 @@ module.exports = {
       username: username,
       password: password
     });
+    
     res.status(200).json({
       status: "success",
       message: "successfully registered",
@@ -48,7 +49,7 @@ module.exports = {
       return res.status(400).json({status:"error",message:"invalid output"})
     }
 
-    const checkPassword = await bcrypt.compare(password, user.password);
+    const checkPassword = await bcrypt.compare(password,user.password);
     if (!checkPassword) {
       res.status(400).json({status:"error",message:"password incorrect"});
     }
