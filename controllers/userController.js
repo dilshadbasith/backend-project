@@ -115,7 +115,7 @@ module.exports = {
     const userId = req.params.id;
     const productId = req.body.productId;
     // const product = await Product.findById(req.body.productId);
-    await User.updateOne({ _id: userId }, { $push: { cart: productId } });
+    await User.updateOne({ _id: userId }, { $push: { cart: productId } });//TODO throw error if not update
     res.status(200).json({
       status: "success",
       message: "Successfully added to cart.",
@@ -154,7 +154,7 @@ module.exports = {
   addToWishList: async (req, res) => {
     const userId = req.params.id;
     const product = await Product.findById(req.body.product);
-    await User.updateOne({ _id: userId }, { $push: { wishlist: product } });
+    await User.updateOne({ _id: userId }, { $push: { wishlist: product } });//TODO implement $addtoset
     res.status(200).json({
       status: "success",
       message: "Successfully added to wishlist",

@@ -3,13 +3,15 @@ const  mongoose = require('mongoose');
 const app= express()
 const port = 3000;
 const adminRoute=require('./routes/adminRoutes')
-const userRoute=require('./routes/userRoutes')
+const userRoute=require('./routes/userRoutes');
+const ErrorHandler = require('./middlewares/ErrorHandler');
 require("dotenv").config()
 mongoose.connect("mongodb://0.0.0.0:27017/backend-project");
 
 app.use(express.json())
 app.use('/api/user',userRoute)
 app.use('/api/admin',adminRoute)
+app.use(ErrorHandler)
 
 app.listen(port,(err)=>{
     if(err){

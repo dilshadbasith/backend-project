@@ -4,11 +4,11 @@ const User = require("../models/userSchema");
 const Product = require("../models/productSchema");
 const {joiProductSchema} = require("../models/joiValidationSchema");
 const jwt = require("jsonwebtoken");
-mongoose.connect("mongodb://0.0.0.0:27017/backend-project", {
+mongoose.connect("mongodb://0.0.0.0:27017/backend-project", { //TODO replace to .env
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
-
+//TODO implement cors
 module.exports = {
   //admin login
 
